@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'core/di/injection.dart';
 import 'core/theme/app_theme.dart';
+import 'features/recipes/presentation/pages/recipe_list_page.dart';
 
 void main() async {
   // Ensure Flutter is ready before we do async setup.
@@ -22,15 +23,7 @@ class CookMateApp extends StatelessWidget {
       title: 'CookMate',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const Scaffold(
-        body: Center(
-          child: Text(
-            'CookMate 🍳\nSetup complete!',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
+       home: const RecipeListPage(),
     );
   }
 }
