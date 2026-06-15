@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'core/di/injection.dart';
+import 'core/theme/app_theme.dart';
+
+void main() async {
+  // Ensure Flutter is ready before we do async setup.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Wire up all dependencies before the app starts.
+  await setupDependencies();
+
   runApp(const CookMateApp());
 }
 
@@ -12,14 +21,11 @@ class CookMateApp extends StatelessWidget {
     return MaterialApp(
       title: 'CookMate',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
       home: const Scaffold(
         body: Center(
           child: Text(
-            'CookMate 🍳\nComing soon...',
+            'CookMate 🍳\nSetup complete!',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
